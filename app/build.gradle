@@ -30,12 +30,19 @@ android {
 		targetSdkVersion 25
 		versionCode 1
 		versionName "1.0.0"
+		multiDexEnabled true
 		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 	}
 	buildTypes {
 		release {
+			minifyEnabled true
+			proguardFiles getDefaultProguardFile('proguard-android.txt')
+			signingConfig signingConfigs.debug
+		}
+		debug {
+			debuggable true
 			minifyEnabled false
-			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.debug
 		}
 	}
 }
